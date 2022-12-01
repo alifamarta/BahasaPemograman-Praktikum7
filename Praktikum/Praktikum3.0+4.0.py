@@ -1,98 +1,34 @@
-mahasiswa = {}
+from Praktikum.add import add,update
+from Praktikum.view import show
+from Praktikum.delete import delete
 
-def show():
-    if mahasiswa.items():
-        print("Daftar Nilai")
-        print("=================================================================================")
-        print("| No |      Nama      |     NIM     |  Tugas  |   UTS   |   UAS   |    Akhir    |")
-        print("=================================================================================")
-        i = 0
-        for a in mahasiswa.items():
-            i += 1
-            print("| {no:2d} | {0:14s} | {1:11s} | {2:7d} | {3:7d} | {4:7d} |      {5:6.2f} |"
-            .format (a[0][: 14],a[1][0],a[1][1],a[1][2],a[1][3],a[1][4], no = i))
-        print("=================================================================================")
-        
-    else:
-        print("Daftar Nilai")
-        print("=================================================================================")
-        print("| No |      Nama      |     NIM     |  Tugas  |   UTS   |   UAS   |    Akhir    |")
-        print("=================================================================================")
-        print("|                                TIDAK ADA DATA                                 |")
-        print("=================================================================================")
+while True:
 
-def add():
-    print("Tambah Data")
-    nama = input("Nama\t : ")
-    nim = input("NIM\t : ")
-    uts = int(input("Nilai UTS\t : "))
-    uas = int(input("Nilai UAS\t : "))
-    tugas = int(input("Nilai Tugas\t : "))
-    akhir = (tugas * 30/100) + (uts * 35/100) + (uas * 35/100)
-    mahasiswa[nama] = nim, tugas, uts, uas, akhir
-
-def delete():
-    print("Hapus Data")
-    nama = input("Masukkan Nama : ")
-    
-    if nama in mahasiswa.keys():
-        del mahasiswa[nama]
-    
-    else:
-        print("Nama tidak ditemukan")
-
-def update():
-    print("Ubah Data")
-    nama = input("Masukkan Nama : ")
-    if nama in mahasiswa.keys():
-        nim = input("NIM\t : ")
-        uts = int(input("Nilai UTS\t : "))
-        uas = int(input("Nilai UAS\t : "))
-        tugas = int(input("Nilai Tugas\t : "))
-        akhir = (tugas * 30/100) + (uts * 35/100) + (uas * 35/100)
-        mahasiswa[nama] = nim, tugas, uts, uas, akhir
-
-    else:
-        print("Nama tidak ditemukan ")
-
-def search():
-    print("Cari Data")
-    a = input("Masukkan Nama : ")
-    if a in mahasiswa.keys():
-        print("===========================================================================")
-        print("|      Nama      |     NIM     |  Tugas  |   UTS   |   UAS   |    Akhir   |")
-        print("===========================================================================")
-        print("| {0:14s} | {1:11s} | {2:7d} | {3:7d} | {4:7d} |     {5:6.2f} |"
-            .format (a , mahasiswa[a][0], mahasiswa[a][1], mahasiswa[a][2], mahasiswa[a][3], mahasiswa[a][4] ))
-        print("===========================================================================")
-
-    else:
-        print("=================================================================================")
-        print("| No |      Nama      |     NIM     |  Tugas  |   UTS   |   UAS   |    Akhir    |")
-        print("=================================================================================")
-        print("|                          DATA TIDAK DITEMUKAN                                 |")
-        print("=================================================================================")
-
-def menu():
     print("\n")
     print("================================")
     print("      Program input nilai       ")
     print("================================\n")
 
-    x = input("[(L)ihat, (T)ambah, (U)bah, (H)apus, (C)ari, (K)eluar]: ")
+    print("[1] Lihat Data")
+    print("[2] Tambah Data")
+    print("[3] Ubah Data")
+    print("[4] Hapus Data")
+    print("[5] Keluar")
+
+    x = input("> PILIH MENU >")
+
     print("\n")
 
-    if x == 'L':
+    if x == '1':
         show()
-    elif x == 'T':
+    elif x == '2':
         add()
-    elif x == 'U':
+    elif x == '3':
         update()
-    elif x == 'H':
+    elif x == '4':
         delete()
-    elif x == 'C':
-        search()
-    elif x == 'K':
+
+    elif x == '5':
         print("==========================================================================")
         print('\n')
         print("> You exit the code                        ")
@@ -103,6 +39,3 @@ def menu():
 
     else:
         print("            KODE YANG ANDA MASUKKAN TIDAK VALID !!!!!!!!!!!")
-
-while True:
-    menu()
