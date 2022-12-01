@@ -1,4 +1,4 @@
-from Praktikum.mahasiswa import mahasiswa
+from menu.mahasiswa import mahasiswa
 
 def add():
     print("Tambah Data")

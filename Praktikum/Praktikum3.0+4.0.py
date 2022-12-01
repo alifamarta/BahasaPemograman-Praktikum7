@@ -1,6 +1,6 @@
-from Praktikum.add import add,update
-from Praktikum.view import show
-from Praktikum.delete import delete
+from menu.add import add,update
+from menu.view import show
+from menu.delete import delete
 
 while True:
 
@@ -15,7 +15,7 @@ while True:
     print("[4] Hapus Data")
     print("[5] Keluar")
 
-    x = input("> PILIH MENU >")
+    x = input("> PILIH MENU : ")
 
     print("\n")
 
